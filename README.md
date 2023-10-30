@@ -1,4 +1,5 @@
 # AI-X-Review
+
 1. Navigate to the project directory:
    ```shell
    cd AI-X-Review
@@ -11,3 +12,4 @@
    ```shell
    docker build -t ai-x-review .
    docker run -p 8080:8080 ai-x-review
+   ```
