@@ -1,0 +1,51 @@
+#productPages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.productDetails {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.productDetails .title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.productDetails .description {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #333;
+}
+
+.productActions {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.productActions .upvote,
+.productActions .downvote,
+.productActions .save,
+.productActions .share {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #495057;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.productActions .upvote:hover,
+.productActions .downvote:hover,
+.productActions .save:hover,
+.productActions .share:hover {
+    background-color: #e9ecef;
+}
