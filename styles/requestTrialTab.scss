@@ -1,0 +1,39 @@
+#requestTrialTab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+#requestTrialTab h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#requestTrialTab .trial-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+}
+
+#requestTrialTab .trial-form input,
+#requestTrialTab .trial-form button {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+#requestTrialTab .trial-form button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#requestTrialTab .trial-form button:hover {
+    background-color: #0056b3;
+}

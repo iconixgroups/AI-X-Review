@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/your-repo/ai-x-review-website.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'npm run test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'npm run build'
+                sh 'docker build -t ai-x-review-website .'
+                sh 'docker run -d -p 80:80 ai-x-review-website'
+            }
+        }
+    }
+
+    post {
+        failure {
+            mail to: 'team@ai-x-review-website.com',
+                 subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Something is wrong with ${env.BUILD_URL}"
+        }
+    }
+}
