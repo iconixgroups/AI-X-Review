@@ -1,6 +1,9 @@
-2. Navigate to the project directory:
+# AI-X-Review
+3. Build and run the Docker image:
+   ```shell
+   pip install -r requirements.txt
    ```
-   cd AI-X-Review
+4. Build and run the Docker image:
    ```
 3. Install the Python libraries:
    ```
