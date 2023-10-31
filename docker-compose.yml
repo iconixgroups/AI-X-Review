@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: devops/Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    networks:
+      - app-network
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
