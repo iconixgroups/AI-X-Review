@@ -19,8 +19,7 @@ COPY . .
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
-# Copy node_modules directory into the Docker image
-COPY node_modules ./node_modules
+# No line here
 
 # Run the app when the container launches
 CMD [ "node", "backend/server.js" ]
