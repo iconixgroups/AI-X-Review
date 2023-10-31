@@ -1,0 +1,14 @@
+{
+  "name": "AI-X-Review",
+  "version": "1.0.0",
+  "description": "AI-X-Review project",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
+    "cors": "^2.8.5"
+  }
+}
