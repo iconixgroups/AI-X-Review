@@ -8,7 +8,7 @@ mongoose
   })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
-const apiRoutes = require('./routes/api');
+const apiRoutes = require("./routes/api");
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/api', apiRoutes);
+app.use("/api", apiRoutes);
 
 const port = process.env.PORT || 5000;
 
