@@ -20,8 +20,6 @@ class RequestTrialTab extends React.Component {
   }
 
   fetchProduct() {
-    // Fetch product details here
-    // This is a placeholder and should be replaced with actual implementation
     return Promise.resolve({
       name: 'AI Product',
       trialLink: 'https://www.example.com/trial'
