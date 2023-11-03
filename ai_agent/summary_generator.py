@@ -1,6 +1,11 @@
 import openai
 
-openai.api_key = "your-api-key"
+OPENAI_API_KEY = "your-api-key"
+openai.api_key = OPENAI_API_KEY
+
+OPENAI_ENGINE = 'text-davinci-003'
+OPENAI_TEMPERATURE = 0.3
+OPENAI_MAX_TOKENS = 100
 
 
 def summarize_product(product_details):
@@ -27,9 +32,7 @@ def summarize_product(product_details):
         )
 
     if "pricing" in product_details:
-OPENAI_ENGINE = 'text-davinci-003'
-OPENAI_TEMPERATURE = 0.3
-OPENAI_MAX_TOKENS = 100
+# Removed the wrongly placed constants
 =======
 OPENAI_ENGINE = 'text-davinci-003'
 OPENAI_TEMPERATURE = 0.3
@@ -40,8 +43,8 @@ OPENAI_MAX_TOKENS = 100
 
     try:
         response = openai.Completion.create(
-            engine="text-davinci-003", prompt=prompt, temperature=0.3, max_tokens=100
-        )
+                    engine=OPENAI_ENGINE, prompt=prompt, temperature=OPENAI_TEMPERATURE, max_tokens=OPENAI_MAX_TOKENS
+                )
         return response.choices[0].text.strip()
     except Exception as e:
         print(f"An error occurred while summarizing the product: {e}")
@@ -83,7 +86,7 @@ OPENAI_MAX_TOKENS = 100
     if "features" in product_details:
 
     response = openai.Completion.create(
-        engine="text-davinci-003", prompt=prompt, temperature=0.3, max_tokens=100
-    )
+            engine=OPENAI_ENGINE, prompt=prompt, temperature=OPENAI_TEMPERATURE, max_tokens=OPENAI_MAX_TOKENS
+        )
 
     return response.choices[0].text.strip()
