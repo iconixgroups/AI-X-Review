@@ -26,20 +26,11 @@ class RequestTrialTab extends React.Component {
     }
   }
 
-  fetchProduct() {
-    // Fetch product details here
-    // This is a placeholder and should be replaced with actual implementation
-    return Promise.resolve({
-      name: "AI Product",
-      trialLink: "https://www.example.com/trial",
-    });
-  }
-
-  async render() {
+  async fetchProduct() {
     // Fetch product details here
     // This is a placeholder and should be replaced with actual implementation
     try {
-      const response = await fetch("/api/products/1"); // replace with actual product id
+      const response = await fetch("/api/actual-endpoint");
       const product = await response.json();
       return product;
     } catch (error) {
