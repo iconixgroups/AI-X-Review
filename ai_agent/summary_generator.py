@@ -39,26 +39,3 @@ def summarize_product(product_details):
     except Exception as e:
         print(f"An error occurred while summarizing the product: {e}")
         return None
-        prompt += f"{product_details['description']} "
-
-        )
-
-    if 'pricing' in product_details:
-        prompt += f'The pricing details are as follows: {product_details["pricing"]}.'
-
-    prompt += '\n\nSummarize this information.'
-
-    try:
-        response = openai.Completion.create(
-            engine='text-davinci-003', prompt=prompt, temperature=0.3, max_tokens=100
-        )
-        return response.choices[0].text.strip()
-    except Exception as e:
-        print(f'An error occurred while summarizing the product: {e}')
-        return None
-
-    response = openai.Completion.create(
-        engine="text-davinci-003", prompt=prompt, temperature=0.3, max_tokens=100
-    )
-
-    return response.choices[0].text.strip()
