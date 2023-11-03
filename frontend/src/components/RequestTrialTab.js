@@ -9,14 +9,17 @@ class RequestTrialTab extends React.Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     // Assuming "fetchProduct" is a function that fetches the product details
-    this.fetchProduct().then(product => {
+    try {
+      const product = await this.fetchProduct();
       this.setState({
         product: product,
         trialLink: product.trialLink
       });
-    });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   fetchProduct() {
@@ -29,10 +32,23 @@ class RequestTrialTab extends React.Component {
   }
 
   render() {
+    // Fetch product details here
+    // This is a placeholder and should be replaced with actual implementation
+    const response = await fetch('https://api.example.com/product');
+    const product = await response.json();
+    return product;
+  }
+
+  render() {
     const { product, trialLink } = this.state;
 
     if (!product) {
-      return <div>Loading...</div>;
+      return (
+        <div>
+          <span>Loading...</span>
+          <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </div>
+      );
     }
 
     return (
