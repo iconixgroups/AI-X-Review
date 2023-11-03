@@ -1,3 +1,3 @@
 module.exports = {
-  entry: "./frontend/src",
+  entry: "./frontend/src/index.js",
 };
