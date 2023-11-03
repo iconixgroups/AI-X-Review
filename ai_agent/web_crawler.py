@@ -23,34 +23,17 @@ class AiProductCrawler(CrawlSpider):
         return web_page_data
 
 
-def update_permitted_domains_and_initial_urls(self):
-    self.allowed_domains = ["example.com"]  # replace with actual domains
-    self.start_urls = ["http://www.example.com"]  # replace with actual start urls
-
-
-def crawl_websites():
-    process = CrawlerProcess(
+def start_crawling_process():
+    crawler_process = CrawlerProcess(
         {"USER_AGENT": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)"}
     )
 
-    process.crawl(AiProductSpider)
-    process.start()
+    crawler_process.crawl(AiProductCrawler)
+    crawler_process.start()
 
 
 if __name__ == "__main__":
     start_crawling_process()
-
-
-def crawl_websites():
-    process = CrawlerProcess(
-        {"USER_AGENT": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)"}
-    )
-
-    process.crawl(AiProductSpider)
-    process.start()
-
-
-if __name__ == "__main__":
     crawl_websites()
 
 # Removed duplicate class definition
@@ -66,15 +49,12 @@ def crawl_websites():
     process.start()
 
 
-if __name__ == "__main__":
-    start_crawling_process()
-
 # Removed duplicate class definition
-    rules = (Rule(LinkExtractor(allow=()), callback="parse_item", follow=True),)
+    rules = (Rule(LinkExtractor(allow=()), callback="parse_web_page", follow=True),)
 
     def __init__(self, *args, **kwargs):
-        super(AiProductSpider, self).__init__(*args, **kwargs)
-        self.update_allowed_domains_and_start_urls()
+        super(AiProductCrawler, self).__init__(*args, **kwargs)
+        self.update_permitted_domains_and_initial_urls()
 
     def parse_web_page(self, response):
         web_page_data = {}
@@ -86,24 +66,6 @@ if __name__ == "__main__":
         web_page_data["keywords"] = response.css('meta[name="keywords"]::attr(content)').get()
         # Added more fields to extract as per the requirements
         return web_page_data
-
-
-def update_allowed_domains_and_start_urls(self):
-    self.allowed_domains = ["example.com"]  # replace with actual domains
-    self.start_urls = ["http://www.example.com"]  # replace with actual start urls
-
-
-def crawl_websites():
-    process = CrawlerProcess(
-        {"USER_AGENT": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)"}
-    )
-
-    process.crawl(AiProductSpider)
-    process.start()
-
-
-if __name__ == "__main__":
-    start_crawling_process()
 from scrapy.spiders import CrawlSpider, Rule
 
 
@@ -127,28 +89,6 @@ class AiProductCrawler(CrawlSpider):
         return web_page_data
 
 
-def update_permitted_domains_and_initial_urls(self):
-    self.permitted_domains = ["example.com"]  # replace with actual domains
-    self.initial_crawl_urls = ["http://www.example.com"]  # replace with actual start urls
-
-
-def start_crawling_process():
-    crawler_process = CrawlerProcess(
-        {"USER_AGENT": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)"}
-    )
-
-    crawler_process.crawl(AiProductCrawler)
-    crawler_process.start()
-
-
-if __name__ == "__main__":
-    start_crawling_process()
-
-def update_permitted_domains_and_initial_urls(self):
-    self.permitted_domains = ["example.com"]  # replace with actual domains
-    self.initial_crawl_urls = ["http://www.example.com"]  # replace with actual start urls
-
-
 def start_crawling_process():
     crawler_process = CrawlerProcess(
         {"USER_AGENT": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)"}
@@ -174,7 +114,6 @@ def crawl_websites():
     process.start()
 
 
-if __name__ == "__main__":
-    crawl_websites()
-
+# Removed duplicate class definition
+    self.initial_crawl_urls = ["http://www.example.com"]  # replace with actual start urls
 # Removed duplicate class definition
