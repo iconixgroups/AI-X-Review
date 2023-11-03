@@ -3,22 +3,43 @@ import openai
 openai.api_key = 'your-api-key'
 
 def summarize_product(product_details):
-    prompt_parts = [f"{product_details['name']} is an AI product that "]
+    prompt_parts = [f"{product_details['name']} is an AI product that"]
     
     if 'description' in product_details:
-        prompt_parts.append(f"{product_details['description']} ")
+        prompt_parts.append(f"{product_details['description']}")
     
     if 'features' in product_details:
-        prompt_parts.append("It has the following key features: " + ', '.join(product_details['features']) + ". ")
+        prompt += "It has the following key features: " + ', '.join(product_details['features']) + "."
+
+    if 'use_cases' in product_details:
+        prompt += "It can be used for: " + ', '.join(product_details['use_cases']) + "."
+
+    if 'integrations' in product_details:
+        prompt += "It integrates with: " + ', '.join(product_details['integrations']) + "."
+
+    if 'pricing' in product_details:
+        prompt += f"The pricing details are as follows: {product_details['pricing']}"
+
+    prompt += "\n\nSummarize this information."
+
+    response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=prompt,
+        temperature=0.3,
+        max_tokens=100
+    )
+
+    return response.choices[0].text.strip()
+        prompt_parts.append("It has the following key features: " + ', '.join(product_details['features']) + ".")
     
     if 'use_cases' in product_details:
-        prompt_parts.append("It can be used for: " + ', '.join(product_details['use_cases']) + ". ")
+        prompt_parts.append("It can be used for: " + ', '.join(product_details['use_cases']) + ".")
     
     if 'integrations' in product_details:
-        prompt_parts.append("It integrates with: " + ', '.join(product_details['integrations']) + ". ")
+        prompt_parts.append("It integrates with: " + ', '.join(product_details['integrations']) + ".")
     
     if 'pricing' in product_details:
-        prompt_parts.append(f"The pricing details are as follows: {product_details['pricing']}.")
+        prompt_parts.append(f"The pricing details are as follows: {product_details['pricing']}")
     
     prompt_parts.append("\n\nSummarize this information.")
     
@@ -32,12 +53,6 @@ def summarize_product(product_details):
     )
 
     return response.choices[0].text.strip()
-        prompt += f"{product_details['description']} "
-
-    if 'features' in product_details:
-        prompt += "It has the following key features: " + ', '.join(product_details['features']) + ". "
-
-    if 'use_cases' in product_details:
         prompt += "It can be used for: " + ', '.join(product_details['use_cases']) + ". "
 
     if 'integrations' in product_details:
@@ -60,26 +75,20 @@ def summarize_product(product_details):
         return None
 
     return response.choices[0].text.strip()
-    if not all(key in product_details for key in required_keys):
-        raise ValueError('Missing required keys in product_details')
-    prompt = f"{product_details['name']} is an AI product that "
-
-    if 'description' in product_details:
-        prompt += f"{product_details['description']} "
-
-    if 'features' in product_details:
         prompt += "It has the following key features: " + ', '.join(product_details['features']) + ". "
 
     if 'use_cases' in product_details:
-        prompt += "It can be used for: " + ', '.join(product_details['use_cases']) + ". "
+        prompt += "It can be used for: " + ', '.join(product_details['use_cases']) + "."
 
     if 'integrations' in product_details:
-        prompt += "It integrates with: " + ', '.join(product_details['integrations']) + ". "
+        prompt += "It integrates with: " + ', '.join(product_details['integrations']) + "."
 
     if 'pricing' in product_details:
-        prompt += f"The pricing details are as follows: {product_details['pricing']}."
+        prompt += f"The pricing details are as follows: {product_details['pricing']}"
 
     prompt += "\n\nSummarize this information."
+
+    try:
 
     response = openai.Completion.create(
         engine="text-davinci-003",
