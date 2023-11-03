@@ -17,11 +17,15 @@ def summarize_product(product_details):
     if 'integrations' in product_details:
         prompt_parts.append("It integrates with: " + ', '.join(product_details['integrations']) + ".")
     
+    if 'pricing' in product_details:
+        prompt_parts.append(f"The pricing details are as follows: {product_details['pricing']}")
+    
     prompt_parts.append("\n\nSummarize this information.")
     
     prompt = ''.join(prompt_parts)
 
     try:
+        prompt = ''.join(prompt_parts)
         response = openai.Completion.create(
             engine="text-davinci-003",
             prompt=prompt,
@@ -51,48 +55,6 @@ def summarize_product(product_details):
         return None
 
     return response.choices[0].text.strip()
-
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        temperature=0.3,
-        max_tokens=100
-    )
-
-    prompt_parts.append("\n\nSummarize this information.")
-    
-    prompt = ''.join(prompt_parts)
-
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
-            temperature=0.3,
-            max_tokens=100
-        )
-    except Exception as e:
-        print(f"Error occurred while calling OpenAI API: {e}")
-        return None
-
-    return response.choices[0].text.strip()
-
-    prompt_parts.append("\n\nSummarize this information.")
-    
-    prompt = ''.join(prompt_parts)
-
-    try:
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
-            temperature=0.3,
-            max_tokens=100
-        )
-    except Exception as e:
-        print(f"Error occurred while calling OpenAI API: {e}")
-        return None
-
-    return response.choices[0].text.strip()
-
-    try:
         prompt = ''.join(prompt_parts)
         response = openai.Completion.create(
             engine="text-davinci-003",
@@ -103,23 +65,6 @@ def summarize_product(product_details):
     except Exception as e:
         print(f"Error occurred while calling OpenAI API: {e}")
         return None
-
-    prompt_parts.append("\n\nSummarize this information.")
-    
-    prompt = ''.join(prompt_parts)
-
-    try:
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
-            temperature=0.3,
-            max_tokens=100
-        )
-    except Exception as e:
-        print(f"Error occurred while calling OpenAI API: {e}")
-        return None
-
-    return response.choices[0].text.strip()
 
     prompt_parts.append("\n\nSummarize this information.")
     
