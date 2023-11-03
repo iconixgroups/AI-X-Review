@@ -25,7 +25,6 @@ def summarize_product(product_details):
     prompt = ''.join(prompt_parts)
 
     try:
-        prompt = ''.join(prompt_parts)
         response = openai.Completion.create(
             engine="text-davinci-003",
             prompt=prompt,
@@ -37,6 +36,7 @@ def summarize_product(product_details):
         return None
 
     return response.choices[0].text.strip()
+    if 'use_cases' in product_details:
         prompt_parts.append("It can be used for: " + ', '.join(product_details['use_cases']) + ".")
     
     prompt_parts.append("\n\nSummarize this information.")
@@ -55,8 +55,12 @@ def summarize_product(product_details):
         return None
 
     return response.choices[0].text.strip()
-        prompt = ''.join(prompt_parts)
-        response = openai.Completion.create(
+    response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=prompt,
+        temperature=0.3,
+        max_tokens=100
+    )
             engine="text-davinci-003",
             prompt=prompt,
             temperature=0.3,
