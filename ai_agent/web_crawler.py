@@ -16,9 +16,9 @@ class AiProductSpider(CrawlSpider):
         item["url"] = response.url
         item["title"] = response.css("title::text").get()
         item["description"] = response.css(
-            'meta[name="description"]::attr(content)'
-        ).get()
-        item["keywords"] = response.css('meta[name="keywords"]::attr(content)').get()
+                    "meta[name='description']::attr(content)"
+                ).get()
+        item["keywords"] = response.css("meta[name='keywords']::attr(content)").get()
         # Added more fields to extract as per the requirements
         return item
 
