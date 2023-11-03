@@ -10,7 +10,7 @@ class RequestTrialTab extends React.Component {
   }
 
   async componentDidMount() {
-    // Assuming "fetchProduct" is a function that fetches the product details
+    // The 'fetchProduct' function fetches the product details from the '/api/actual-endpoint' and returns the product as a JSON object. In case of an error during the fetch operation, it logs the error and returns null.
     try {
       const product = await this.fetchProduct();
       if (product) {
