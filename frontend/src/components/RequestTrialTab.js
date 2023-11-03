@@ -29,8 +29,6 @@ class RequestTrialTab extends React.Component {
     const product = await response.json();
     return product;
   }
-
-  render() {
     const { product, trialLink } = this.state;
 
     if (!product) {
