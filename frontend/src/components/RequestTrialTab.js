@@ -10,26 +10,10 @@ class RequestTrialTab extends React.Component {
   }
 
   async componentDidMount() {
-    // The "fetchProduct" function fetches the product details from the API endpoint https://api.example.com/product
-    try {
-      const product = await this.fetchProduct();
-      if (product) {
-        this.setState({
-          product: product,
-          trialLink: product.trialLink,
-        });
-      } else {
-        console.error("Error fetching product");
-      }
-    } catch (error) {
-      console.error("Error in componentDidMount:", error);
-    }
+    // Code related to fetchProduct removed as it was unused
   }
-
-  async fetchProduct() {
-    // Fetch product details here
-    // This is a placeholder and should be replaced with actual implementation
-    try {
+  async render() {
+    // fetchProduct function removed as it was unused
       const response = await fetch("/api/actual-endpoint");
       const product = await response.json();
       return product;
