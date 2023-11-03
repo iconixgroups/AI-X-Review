@@ -31,6 +31,18 @@ def summarize_product(product_details):
     except Exception as e:
         print(f"Error occurred while calling OpenAI API: {e}")
         return None
+    prompt_parts.append("\n\nSummarize this information.")
+    prompt = ''.join(prompt_parts)
+    try:
+        response = openai.Completion.create(
+            engine="text-davinci-003",
+            prompt=prompt,
+            temperature=0.3,
+            max_tokens=100
+        )
+    except Exception as e:
+        print(f"Error occurred while calling OpenAI API: {e}")
+        return None
     return response.choices[0].text.strip()
     if 'use_cases' in product_details:
         prompt_parts.append("It can be used for: " + ', '.join(product_details['use_cases']) + ".")
@@ -47,17 +59,6 @@ def summarize_product(product_details):
         print(f"Error occurred while calling OpenAI API: {e}")
         return None
     return response.choices[0].text.strip()
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        temperature=0.3,
-        max_tokens=100
-    )
-            engine="text-davinci-003",
-            prompt=prompt,
-            temperature=0.3,
-            max_tokens=100
-        )
     except Exception as e:
         print(f"Error occurred while calling OpenAI API: {e}")
         return None
