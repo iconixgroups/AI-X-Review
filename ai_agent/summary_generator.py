@@ -1,24 +1,25 @@
 import openai
 
-openai.api_key = 'your-api-key'
+openai.api_key = "your-api-key"
+
 
 def summarize_product(product_details):
     prompt_parts = []
-    if 'pricing' in product_details:
+    if "pricing" in product_details:
         prompt_parts.append(
             f'The pricing details are as follows: {product_details["pricing"]}'
         )
-    
-    prompt_parts.append('\n\nSummarize this information.')
-    prompt = ''.join(prompt_parts)
-    
+
+    prompt_parts.append("\n\nSummarize this information.")
+    prompt = "".join(prompt_parts)
+
     try:
         response = openai.Completion.create(
-            engine='text-davinci-003', prompt=prompt, temperature=0.3, max_tokens=100
+            engine="text-davinci-003", prompt=prompt, temperature=0.3, max_tokens=100
         )
         return response.choices[0].text.strip()
     except Exception as e:
-        print(f'Error occurred while calling OpenAI API: {e}')
+        print(f"Error occurred while calling OpenAI API: {e}")
         return None
     if "use_cases" in product_details:
         prompt_parts.append(
