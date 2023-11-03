@@ -10,7 +10,7 @@ class RequestTrialTab extends React.Component {
   }
 
   async componentDidMount() {
-    // Assuming "fetchProduct" is a function that fetches the product details
+    // Assuming 'fetchProduct' is a function that fetches the product details
     try {
       const product = await this.fetchProduct();
       if (product) {
@@ -19,10 +19,10 @@ class RequestTrialTab extends React.Component {
           trialLink: product.trialLink,
         });
       } else {
-        console.error("Error fetching product");
+        console.error('Error fetching product');
       }
     } catch (error) {
-      console.error("Error in componentDidMount:", error);
+      console.error('Error in componentDidMount:', error);
     }
   }
 
@@ -30,11 +30,11 @@ class RequestTrialTab extends React.Component {
     // Fetch product details here
     // This is a placeholder and should be replaced with actual implementation
     try {
-      const response = await fetch("/api/actual-endpoint");
+      const response = await fetch('/api/actual-endpoint');
       const product = await response.json();
       return product;
     } catch (error) {
-      console.error("Error fetching product:", error);
+      console.error('Error fetching product:', error);
       return null;
     }
   }
@@ -47,13 +47,13 @@ class RequestTrialTab extends React.Component {
     }
 
     return (
-      <div id="requestTrialTab">
+      <div id='requestTrialTab'>
         <h2>{product.name} - Request Trial</h2>
         <p>
           Interested in trying out {product.name}? Click the link below to sign
           up for a trial.
         </p>
-        <a href={trialLink} target="_blank" rel="noopener noreferrer">
+        <a href={trialLink} target='_blank' rel='noopener noreferrer'>
           Request Trial
         </a>
       </div>
