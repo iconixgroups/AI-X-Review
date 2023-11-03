@@ -27,7 +27,8 @@ class RequestTrialTab extends React.Component {
   }
 
   async fetchProduct() {
-    // This method simulates fetching product details by returning a promise with a hardcoded product object
+    // Fetch product details here
+    // This is a placeholder and should be replaced with actual implementation
     try {
       const response = await fetch("/api/actual-endpoint");
       const product = await response.json();
