@@ -1,4 +1,3 @@
-\n
 // ...rest of the code...
 
 const port = process.env.PORT || 6000;
