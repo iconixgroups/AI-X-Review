@@ -9,14 +9,21 @@ class RequestTrialTab extends React.Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     // Assuming "fetchProduct" is a function that fetches the product details
-    this.fetchProduct().then(product => {
-      this.setState({
-        product: product,
-        trialLink: product.trialLink
-      });
-    });
+    try {
+      const product = await this.fetchProduct();
+      if (product) {
+        this.setState({
+          product: product,
+          trialLink: product.trialLink
+        });
+      } else {
+        console.error('Error fetching product');
+      }
+    } catch (error) {
+      console.error('Error in componentDidMount:', error);
+    }
   }
 
   fetchProduct() {
@@ -26,6 +33,19 @@ class RequestTrialTab extends React.Component {
       name: 'AI Product',
       trialLink: 'https://www.example.com/trial'
     });
+  }
+
+  render() {
+    // Fetch product details here
+    // This is a placeholder and should be replaced with actual implementation
+    try {
+      const response = await fetch('/api/products/1'); // replace with actual product id
+      const product = await response.json();
+      return product;
+    } catch (error) {
+      console.error('Error fetching product:', error);
+      return null;
+    }
   }
 
   render() {
