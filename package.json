@@ -1,5 +1,5 @@
 {
-  "name": "AI-X-Review",
+  "name": "ai_x_review",
   "version": "1.0.0",
   "description": "AI-X-Review project",
   "main": "backend/server.js",
