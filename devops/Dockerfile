@@ -4,14 +4,14 @@ FROM node:21.0-bookworm-slim
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package.json ./
+# Copy package.json, package-lock.json and necessary directories to the working directory
+COPY package*.json ./
+COPY frontend ./frontend
+COPY backend ./backend
+COPY ai_agent ./ai_agent
 
 # Install any needed packages specified in package.json
 RUN npm install
-
-# Copy node_modules directory into the Docker image
-COPY node_modules ./node_modules
 
 # Bundle app source inside the docker image
 COPY . .
@@ -22,4 +22,4 @@ EXPOSE 8080
 # No line here
 
 # Run the app when the container launches
-CMD [ "node", "backend/server.js" ]
+CMD [ "npm", "start" ]
