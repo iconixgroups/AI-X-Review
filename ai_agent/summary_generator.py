@@ -2,49 +2,49 @@ import openai
 
 openai.api_key = "your-api-key"
 
-def summarize_product(product_details):
+def generate_summary(product_details):
     summary_prompt = f"{product_details['name']} is an AI product that "
 
     if "description" in product_details:
-        prompt += f"{product_details['description']}"
+        summary_prompt += f"{product_details['description']}"
 
     if "features" in product_details:
-        prompt += (
+        summary_prompt += (
             "It has the following key features: "
             + ", ".join(product_details["features"])
             + "."
         )
 
     if "use_cases" in product_details:
-        prompt += (
+        summary_prompt += (
             "It can be used for: " + ", ".join(product_details["use_cases"]) + "."
         )
 
     if "integrations" in product_details:
-        prompt += (
+        summary_prompt += (
             "It integrates with: " + ", ".join(product_details["integrations"]) + "."
         )
 
     if "pricing" in product_details:
-        prompt = f"{product_details['name']} is an AI product that "
+        summary_prompt += f"{product_details['name']} is an AI product that "
 
     if "description" in product_details:
-        prompt += f"{product_details['description']}"
+        summary_prompt += f"{product_details['description']}"
 
     if "features" in product_details:
-        prompt += (
+        summary_prompt += (
             "It has the following key features: "
             + ", ".join(product_details["features"])
             + "."
         )
 
     if "use_cases" in product_details:
-        prompt += (
+        summary_prompt += (
             "It can be used for: " + ", ".join(product_details["use_cases"]) + "."
         )
 
     if "integrations" in product_details:
-        prompt += (
+        summary_prompt += (
             "It integrates with: " + ", ".join(product_details["integrations"]) + "."
         )
 
@@ -60,7 +60,7 @@ def summarize_product(product_details):
         except Exception as e:
             print(f"An error occurred while summarizing the product: {e}")
             return None
-        prompt += f"{product_details['description']} "
+        summary_prompt += f"{product_details['description']}"
 
     if "features" in product_details:
         summary_prompt += (
@@ -99,7 +99,7 @@ def summarize_product(product_details):
         except Exception as e:
             print(f"An error occurred while summarizing the product: {e}")
             return None
-        prompt += f"{product_details['description']}"
+        summary_prompt += f"{product_details['description']}"
 
     if "features" in product_details:
         
