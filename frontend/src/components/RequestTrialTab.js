@@ -50,8 +50,8 @@ class TrialRequestTab extends React.Component {
       <div id="trialRequestTab">
         <h2>{productDetails.name} - Request Trial</h2>
         <p>
-          Interested in trying out {productDetails.name}? Click the link below to sign
-          up for a trial.
+          Interested in trying out {productDetails.name}? Click the link below
+          to sign up for a trial.
         </p>
         <a href={trialSignupLink} target="_blank" rel="noopener noreferrer">
           Request Trial
