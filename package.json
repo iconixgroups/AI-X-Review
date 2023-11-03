@@ -4,8 +4,9 @@
   "description": "AI-X-Review project",
   "main": "backend/server.js",
   "scripts": {
-    "start": "node backend/server.js"
-  },
+      "start": "node backend/server.js",
+      "build": "npx webpack --config ./path_to_your_webpack_config_file"
+    },
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.12.3",
