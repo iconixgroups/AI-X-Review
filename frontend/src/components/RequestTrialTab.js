@@ -10,7 +10,7 @@ class RequestTrialTab extends React.Component {
   }
 
   async componentDidMount() {
-    // Assuming "fetchProduct" is a function that fetches the product details
+    // The "fetchProduct" function fetches the product details from the API endpoint https://api.example.com/product
     try {
       const product = await this.fetchProduct();
       this.setState({
