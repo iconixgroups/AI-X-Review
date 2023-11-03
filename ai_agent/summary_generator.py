@@ -2,7 +2,8 @@ import openai
 
 openai.api_key = 'your-api-key'
 
-
+def summarize_product(product_details):
+    prompt_parts = []
     if 'pricing' in product_details:
         prompt_parts.append(
             f'The pricing details are as follows: {product_details["pricing"]}'
