@@ -16,10 +16,8 @@ RUN npm install
 # Bundle app source inside the docker image
 COPY . .
 
-# Make port 8080 available to the world outside this container
-EXPOSE 8080
-
-# No line here
+# Make port 5000 available to the world outside this container
+EXPOSE 5000
 
 # Run the app when the container launches
 CMD [ "npm", "start" ]
