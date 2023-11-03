@@ -39,5 +39,3 @@ def crawl_websites():
 
 if __name__ == "__main__":
     crawl_websites()
-
-# Removed duplicate class definition
