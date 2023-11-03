@@ -1,9 +1,7 @@
-
 def replace_quotes():
     import openai
 
     openai.api_key = "your-api-key"
-
 
     def summarize_product(product_details):
         prompt = f"{product_details['name']} is an AI product that "
@@ -25,17 +23,24 @@ def replace_quotes():
 
         if "integrations" in product_details:
             prompt += (
-                "It integrates with: " + ", ".join(product_details["integrations"]) + ". "
+                "It integrates with: "
+                + ", ".join(product_details["integrations"])
+                + ". "
             )
 
         if "pricing" in product_details:
-            prompt += f"The pricing details are as follows: {product_details['pricing']}."
+            prompt += (
+                f"The pricing details are as follows: {product_details['pricing']}."
+            )
 
         prompt += "\n\nSummarize this information."
 
         try:
             response = openai.Completion.create(
-                engine="text-davinci-003", prompt=prompt, temperature=0.3, max_tokens=100
+                engine="text-davinci-003",
+                prompt=prompt,
+                temperature=0.3,
+                max_tokens=100,
             )
             return response.choices[0].text.strip()
         except Exception as e:
@@ -57,11 +62,15 @@ def replace_quotes():
 
         if "integrations" in product_details:
             prompt += (
-                "It integrates with: " + ", ".join(product_details["integrations"]) + ". "
+                "It integrates with: "
+                + ", ".join(product_details["integrations"])
+                + ". "
             )
 
         if "pricing" in product_details:
-            prompt += f"The pricing details are as follows: {product_details['pricing']}."
+            prompt += (
+                f"The pricing details are as follows: {product_details['pricing']}."
+            )
 
         prompt += "\n\nSummarize this information."
 
@@ -70,5 +79,6 @@ def replace_quotes():
         )
 
         return response.choices[0].text.strip()
+
 
 replace_quotes()
