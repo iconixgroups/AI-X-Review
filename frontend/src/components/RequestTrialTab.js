@@ -35,7 +35,7 @@ class RequestTrialTab extends React.Component {
     });
   }
 
-  render() {
+  async render() {
     // Fetch product details here
     // This is a placeholder and should be replaced with actual implementation
     try {
@@ -48,7 +48,7 @@ class RequestTrialTab extends React.Component {
     }
   }
 
-  render() {
+  async render() {
     const { product, trialLink } = this.state;
 
     if (!product) {
