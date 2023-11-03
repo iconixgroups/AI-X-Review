@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 class RequestTrialTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       product: null,
-      trialLink: null
+      trialLink: null,
     };
   }
 
@@ -15,7 +15,7 @@ class RequestTrialTab extends React.Component {
       const product = await this.fetchProduct();
       this.setState({
         product: product,
-        trialLink: product.trialLink
+        trialLink: product.trialLink,
       });
     } catch (error) {
       console.error(error);
@@ -25,7 +25,7 @@ class RequestTrialTab extends React.Component {
   async fetchProduct() {
     // Fetch product details here
     // This is a placeholder and should be replaced with actual implementation
-    const response = await fetch('https://api.example.com/product');
+    const response = await fetch("https://api.example.com/product");
     const product = await response.json();
     return product;
   }
@@ -33,8 +33,7 @@ class RequestTrialTab extends React.Component {
   // Removed the fetch logic from the render method
   // The render method should not contain any fetch logic
   // The fetch logic should be in the fetchProduct method
-  render() {
-  }
+  render() {}
 
   render() {
     const { product, trialLink } = this.state;
@@ -43,7 +42,11 @@ class RequestTrialTab extends React.Component {
       return (
         <div>
           <span>Loading...</span>
-          <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          <span
+            className="spinner-border spinner-border-sm"
+            role="status"
+            aria-hidden="true"
+          ></span>
         </div>
       );
     }
@@ -52,9 +55,12 @@ class RequestTrialTab extends React.Component {
       <div id="requestTrialTab">
         <h2>{product.name} - Request Trial</h2>
         <p>
-          Interested in trying out {product.name}? Click the link below to sign up for a trial.
+          Interested in trying out {product.name}? Click the link below to sign
+          up for a trial.
         </p>
-        <a href={trialLink} target="_blank" rel="noopener noreferrer">Request Trial</a>
+        <a href={trialLink} target="_blank" rel="noopener noreferrer">
+          Request Trial
+        </a>
       </div>
     );
   }
