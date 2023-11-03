@@ -5,9 +5,11 @@ from scrapy.spiders import CrawlSpider, Rule
 
 class AiProductSpider(CrawlSpider):
     name = "ai_product_spider"
-    update_allowed_domains_and_start_urls()  # replace with actual start urls
-
     rules = (Rule(LinkExtractor(allow=()), callback="parse_item", follow=True),)
+
+    def __init__(self, *args, **kwargs):
+        super(AiProductSpider, self).__init__(*args, **kwargs)
+        self.update_allowed_domains_and_start_urls()
 
     def parse_item(self, response):
         item = {}
@@ -20,9 +22,9 @@ class AiProductSpider(CrawlSpider):
         # Added more fields to extract as per the requirements
         return item
 
-def update_allowed_domains_and_start_urls():
-    allowed_domains = ["example.com"]  # replace with actual domains
-    start_urls = ["http://www.example.com"]  # replace with actual start urls
+def update_allowed_domains_and_start_urls(self):
+    self.allowed_domains = ["example.com"]  # replace with actual domains
+    self.start_urls = ["http://www.example.com"]  # replace with actual start urls
 
 
 def crawl_websites():
