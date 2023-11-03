@@ -1,32 +1,32 @@
 import React from "react";
 
-class RequestTrialTab extends React.Component {
+class TrialRequestTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: null,
-      trialLink: null,
+      product_details: null,
+      trial_request_link: null,
     };
   }
 
   async componentDidMount() {
-    // The 'fetchProduct' function fetches the product details from the '/api/actual-endpoint' and returns the product as a JSON object. In case of an error during the fetch operation, it logs the error and returns null.
+    // The 'fetchProductDetails' function fetches the product details from the '/api/actual-endpoint' and returns the product as a JSON object. In case of an error during the fetch operation, it logs the error and returns null.
     try {
-      const product = await this.fetchProduct();
-      if (product) {
+      const product_details = await this.fetchProductDetails();
+      if (product_details) {
         this.setState({
-          product: product,
-          trialLink: product.trialLink,
+          product_details: product_details,
+          trial_request_link: product_details.trialLink,
         });
       } else {
-        console.error("Error fetching product");
+        console.error("Error fetching product details");
       }
     } catch (error) {
       console.error("Error in componentDidMount:", error);
     }
   }
 
-  async fetchProduct() {
+  async fetchProductDetails() {
     // Fetch product details here
     // This is a placeholder and should be replaced with actual implementation
     try {
@@ -40,20 +40,20 @@ class RequestTrialTab extends React.Component {
   }
 
   async render() {
-    const { product, trialLink } = this.state;
+    const { product_details, trial_request_link } = this.state;
 
-    if (!product) {
+    if (!product_details) {
       return <div>Loading...</div>;
     }
 
     return (
-      <div id="requestTrialTab">
-        <h2>{product.name} - Request Trial</h2>
+      <div id="trialRequestTab">
+        <h2>{product_details.name} - Request Trial</h2>
         <p>
-          Interested in trying out {product.name}? Click the link below to sign
-          up for a trial.
+          Interested in trying out {product_details.name}? Click the link below
+          to sign up for a trial.
         </p>
-        <a href={trialLink} target="_blank" rel="noopener noreferrer">
+        <a href={trial_request_link} target="_blank" rel="noopener noreferrer">
           Request Trial
         </a>
       </div>
@@ -61,4 +61,4 @@ class RequestTrialTab extends React.Component {
   }
 }
 
-export default RequestTrialTab;
+export default TrialRequestTab;
