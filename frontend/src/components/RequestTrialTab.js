@@ -30,11 +30,6 @@ class RequestTrialTab extends React.Component {
     return product;
   }
 
-  // Removed the fetch logic from the render method
-  // The render method should not contain any fetch logic
-  // The fetch logic should be in the fetchProduct method
-  render() {}
-
   render() {
     const { product, trialLink } = this.state;
 
