@@ -22,10 +22,9 @@ class AiProductSpider(CrawlSpider):
         # Added more fields to extract as per the requirements
         return item
 
-
-def update_allowed_domains_and_start_urls(self):
-    self.allowed_domains = ["example.com"]  # replace with actual domains
-    self.start_urls = ["http://www.example.com"]  # replace with actual start urls
+    def update_allowed_domains_and_start_urls(self):
+        self.allowed_domains = ["example.com"]  # replace with actual domains
+        self.start_urls = ["http://www.example.com"]  # replace with actual start urls
 
 
 def crawl_websites():

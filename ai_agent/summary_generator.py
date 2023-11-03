@@ -4,10 +4,10 @@ openai.api_key = "your-api-key"
 
 
 def summarize_product(product_details):
-    prompt = f"{product_details['name']} is an AI product that "
+    prompt = f'{product_details["name"]} is an AI product that '
 
     if "description" in product_details:
-        prompt += f"{product_details['description']} "
+        prompt += f'{product_details["description"]} '
 
     if "features" in product_details:
         prompt += (
@@ -27,7 +27,7 @@ def summarize_product(product_details):
         )
 
     if "pricing" in product_details:
-        prompt += f"The pricing details are as follows: {product_details['pricing']}."
+        prompt += f'The pricing details are as follows: {product_details["pricing"]}.'
 
     prompt += "\n\nSummarize this information."
 
@@ -59,7 +59,7 @@ def summarize_product(product_details):
         )
 
     if "pricing" in product_details:
-        prompt += f"The pricing details are as follows: {product_details['pricing']}."
+        prompt += f'The pricing details are as follows: {product_details["pricing"]}.'
 
     prompt += "\n\nSummarize this information."
 

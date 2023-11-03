@@ -1,20 +1,16 @@
-# Use an official Node runtime as a parent image
 FROM node:21.0-bookworm-slim
-
-# Set the working directory in the container
+RUN useradd -ms /bin/bash nodeuser
+USER nodeuser
 WORKDIR /usr/src/app
-
-# Copy package.json, package-lock.json and necessary directories to the working directory
-COPY package*.json ./
-COPY frontend ./frontend
-COPY backend ./backend
-COPY ai_agent ./ai_agent
+CMD [ "npm", "start" ]
+COPY 'backend' './backend'
+COPY 'ai_agent' './ai_agent'
 
 # Install any needed packages specified in package.json
-RUN npm install
+RUN 'npm install'
 
 # Bundle app source inside the docker image
-COPY . .
+COPY '.' '.'
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
@@ -22,4 +18,5 @@ EXPOSE 8080
 # No line here
 
 # Run the app when the container launches
-CMD [ "npm", "start" ]
+CMD [ 'npm', 'start' ]
+HEALTHCHECK CMD curl --fail http://localhost:8080/health || exit 1
