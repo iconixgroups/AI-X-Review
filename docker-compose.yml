@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: devops/Dockerfile
     ports:
-      - 6001:5010
+      - ${SERVER_PORT}:5010
     depends_on:
       - db
     networks:
