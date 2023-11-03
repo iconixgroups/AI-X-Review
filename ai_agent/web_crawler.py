@@ -1,4 +1,3 @@
-```python
 import scrapy
 from scrapy.crawler import CrawlerProcess
 from scrapy.spiders import CrawlSpider, Rule
@@ -32,7 +31,6 @@ def crawl_websites():
 
 if __name__ == "__main__":
     crawl_websites()
-```
 
 class AiProductSpider(CrawlSpider):
     name = 'ai_product_spider'
@@ -60,4 +58,3 @@ def crawl_websites():
 
 if __name__ == "__main__":
     crawl_websites()
-```
