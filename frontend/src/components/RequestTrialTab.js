@@ -27,16 +27,16 @@ class RequestTrialTab extends React.Component {
   }
 
   async fetchProduct() {
-    // Fetch product details here
-    // This is a placeholder and should be replaced with actual implementation
-    try {
-      const response = await fetch("/api/actual-endpoint");
-      const product = await response.json();
-      return product;
-    } catch (error) {
-      console.error("Error fetching product:", error);
-      return null;
-    }
+      // Fetch product details here
+      // Replace this placeholder code with the actual implementation
+      try {
+        const response = await fetch("/api/actual-endpoint");
+        const product = await response.json();
+        return product;
+      } catch (error) {
+        console.error("Error fetching product:", error);
+        return null;
+      }
   }
 
   async render() {
@@ -59,6 +59,8 @@ class RequestTrialTab extends React.Component {
       </div>
     );
   }
+}
+}
 }
 
 export default RequestTrialTab;
