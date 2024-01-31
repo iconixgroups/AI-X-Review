@@ -5,7 +5,7 @@ FROM node:21.6.0-bookworm-slim
 WORKDIR /usr/src/app
 
 # Copy package.json, package-lock.json and necessary directories to the working directory
-COPY package*.json ./
+COPY package*.json\nCOPY webpack.config.js /app/webpack.config.js ./
 COPY frontend ./frontend
 COPY backend ./backend
 COPY ai_agent ./ai_agent
