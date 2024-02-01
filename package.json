@@ -4,7 +4,7 @@
   "description": "AI-X-Review project",
   "main": "backend/server.js",
   "scripts": {
-    "start": "node backend/server.js --port 5010"
+    "start": "node backend/server.js --port 5010","webpack --mode=production"
   },
   "dependencies": {
     "express": "^4.17.1",
