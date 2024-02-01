@@ -4,6 +4,7 @@
   "description": "AI-X-Review project",
   "main": "backend/server.js",
   "scripts": {
+    "webpack":"webpack --mode production",
     "start": "node backend/server.js --port 5010"
   },
   "dependencies": {
@@ -12,7 +13,7 @@
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "webpack": "^5.89.0",
+    "webpack": "^5.90.0", 
     "webpack-cli": "^4.9.1"
   }
 }

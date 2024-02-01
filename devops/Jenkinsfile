@@ -10,21 +10,27 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'export NODE_ENV=production'
+sh 'export WEBPACK_MODE=production'
+sh 'npm install'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm run test'
+                sh 'export WEBPACK_MODE=production'
+sh 'npm run test'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'npm run build'
-                sh 'docker build -t ai-x-review-website .'
-                sh 'docker run -d -p 80:80 ai-x-review-website'
+                sh 'export WEBPACK_MODE=production'
+sh 'npm run build'
+                sh 'export WEBPACK_MODE=production'
+sh 'docker build -t ai-x-review-website .'
+                sh 'export WEBPACK_MODE=production'
+sh 'docker run -d -p 80:80 ai-x-review-website'
             }
         }
     }
