@@ -1,6 +1,9 @@
 # Use an official Node runtime as a parent image
 FROM node:21.6.1-bookworm-slim
 
+# Install global dependencies
+RUN npm install -g webpack
+
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
@@ -11,7 +14,7 @@ COPY backend ./backend
 COPY ai_agent ./ai_agent
 
 # Install any needed packages specified in package.json
-RUN npm install
+RUN npm install [--inner-step-to-installed-web-pack-previously]
 
 # Bundle app source inside the docker image
 COPY . .
